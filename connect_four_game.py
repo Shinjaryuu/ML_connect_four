@@ -1,11 +1,6 @@
 import numpy as np
 from itertools import groupby
-# muhahaha der uberTroll was here!
-<<<<<<< HEAD
-"der zweite troll war auch da hihi
-=======
-#Nein gar nicht
-#33a1e8d75fa63c4ef0a0a37c8288028e
+
 class connect_four_game:
 
     def __init__(self):
