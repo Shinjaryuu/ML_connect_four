@@ -11,6 +11,7 @@ class connect_four_game:
         self.board = np.zeros((6,7))
 
     def _free_slot_in_column(self, column):
+        """Returns the first free slot in the column"""
         filled = np.nonzero(self.board[:, column])[0]
         if  filled.size == 0:
             return 0
@@ -18,8 +19,7 @@ class connect_four_game:
             return filled[-1] + 1
     def move(self, column):
         """Attempt to play in the given column. Returns true if it was
-        successful, false if the column was full. Error if column is not an
-        integer between 0 and 6
+        successful, false if the column was full.
         """
         if self.board[5, column] != 0:
             return False
