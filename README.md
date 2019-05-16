@@ -1,7 +1,7 @@
 # ML_connect_four
 Practicing machine learning by training a neural network to play connect four
 
-##Next task (We, 23.05.2019, 20:00)
+## Next task (We, 23.05.2019, 20:00)
 Write a neural network class with the following properties:
 - The neural network can feed forward
 - You can set the inputs
