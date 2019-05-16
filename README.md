@@ -9,3 +9,5 @@ Write a neural network class with the following properties:
 - You can set the weights
 - You can set the number of input neurons, hidden neurons and output neurons
 - There is one hidden layer
+- The neurons use a sigmoid function as their activation function
+- The activation function must be easily replaceable
