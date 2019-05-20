@@ -18,7 +18,7 @@ class NeuralNetwork:
                                 hidden_layer_size * output_size]
         self.weight_shapes = [w.shape for w in self.weights]
 
-    @classmethod
+    @staticmethod
     def activation_function(x):
         """Activation function for the neurons in this neural network
         Currently: Sigmoid function"""
@@ -35,7 +35,7 @@ class NeuralNetwork:
         self.hl_pre_activation = np.dot(self.inputs, self.weights[0])
         self.hidden_layer = self.activation_function(self.hl_pre_activation)
         self.out_pre_activation = np.dot(self.hidden_layer, self.weights[1])
-        self.outputs = self,activation_function(self.out_pre_activation)
+        self.outputs = self.activation_function(self.out_pre_activation)
 
     def get_weights(self):
         """Get a flattened array of the weights"""
