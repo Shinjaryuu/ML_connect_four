@@ -1,7 +1,7 @@
 import numpy as np
 from itertools import groupby
 
-class connect_four_game:
+class ConnectFourGame:
     """Play a connect 4 game on a board of 6 rows and 7 columns"""
 
     def __init__(self):

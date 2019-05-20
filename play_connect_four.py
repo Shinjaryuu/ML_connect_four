@@ -1,6 +1,6 @@
-import connect_four_game
+from classes.connect_four_game import ConnectFourGame
 
-g = connect_four_game.connect_four_game()
+g = ConnectFourGame()
 players = {1:1, -1:2}
 while True:
     g.print_board()
