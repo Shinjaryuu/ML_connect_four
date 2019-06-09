@@ -1,4 +1,5 @@
 import numpy as np
+import copy
 
 
 class NeuralNetwork:
@@ -13,10 +14,6 @@ class NeuralNetwork:
         self.weights = [np.random.rand(prev_layer, next_layer)
                         for prev_layer, next_layer
                         in zip(self.layer_sizes, self.layer_sizes[1:])]
-        self._num_connections = [prev_layer_size * next_layer_size
-                                for prev_layer_size, next_layer_size
-                                in zip(self.layer_sizes, self.layer_sizes[1:])]
-        self._weight_shapes = [w.shape for w in self.weights]
 
     @staticmethod
     def activation_function(x):
@@ -26,10 +23,11 @@ class NeuralNetwork:
         return 1/(1+np.exp(-x))
 
     def forward(self, inputs):
-        """Compute the values of the hidden layer and the output layer for
-        the previously set inputs and the current value of the weights
+        """Compute the output for the given inputs. A numpy array of multiple
+        inputs can be given, in which case a numpy array of outputs is
+        returned
         """
-        neurons = inputs
+        neurons = copy.deepcopy(inputs)
         for weights in self.weights:
             neurons = self.activation_function(np.dot(neurons,weights))
         return neurons
@@ -43,7 +41,8 @@ class NeuralNetwork:
         be given in form of a flat numpy array
         """
         start = 0
-        self.weights = []
-        for (n, shape) in zip(self._num_connections, self._weight_shapes):
-            self.weights.append(np.reshape(new_weights[start:start+n], shape))
-            start += n
+        for index, weight in enumerate(self.weights):
+            shape = weight.shape
+            num_con = np.product(shape)
+            self.weights[index] = np.reshape(new_weights[start:start+num_con], shape)
+            start += num_con
