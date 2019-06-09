@@ -1,6 +1,12 @@
 # ML_connect_four
 Practicing machine learning by training a neural network to play connect four
 
+##Next task (So, 16.06.2019, 20:00)
+Write a player class with a neural network brain
+- The player takes the game state as an input and gives the next move as
+an output (which column to play in)
+
+
 ## Next task (We, 23.05.2019, 20:00)
 Write a neural network class with the following properties:
 - The neural network can feed forward
